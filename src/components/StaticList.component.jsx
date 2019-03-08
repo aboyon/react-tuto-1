@@ -14,6 +14,10 @@ class StaticListComponent extends Component {
         "id":2,
         "name": "iPhone X",
         "price": 1000.0
+      },{
+        "id":3,
+        "name": "Air Pods",
+        "price": 120.0
       }]
     }
   }
@@ -25,8 +29,9 @@ class StaticListComponent extends Component {
         <h1>StaticComponent</h1>
         <p>A list of static values. List can create and remove new items.</p>
         <ul class="list-group">
-          <StaticListItemComponent {...items[0]} />
-          <StaticListItemComponent {...items[1]} />
+          {this.state.items.map((item) =>
+            <StaticListItemComponent {...item} />
+          )}
         </ul>
       </div>
     )
