@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import NavComponent from './components/Nav.component.jsx';
 import HomeComponent from './components/Home.component.jsx';
-import AboutComponent from './components/About.component.jsx';
+import StaticListComponent from './components/StaticList.component.jsx';
 import GitHubComponent from './components/GitHub.component.jsx';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
           <NavComponent />
           <Route exact path="/" component={HomeComponent} />
           <Route path="/home" component={HomeComponent} />
-          <Route path="/about" component={AboutComponent} />
+          <Route path="/static-list" component={StaticListComponent} />
           <Route path="/github" component={GitHubComponent} />
         </div>
       </Router>

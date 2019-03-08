@@ -8,7 +8,7 @@ class NavComponent extends Component {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <ul className="navbar-nav mr-auto">
           <NavItemComponent path="home" name="Home"/>
-          <NavItemComponent path="about" name="About me"/>
+          <NavItemComponent path="static-list" name="Static lists"/>
           <NavItemComponent path="github" name="My Github"/>
         </ul>
       </nav>
