@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
-
-let NavItemComponent = (props) =>
-  <li className={props.toggleClass(props.url)}>
-    <a className="nav-link" href="#" onClick={(link_name) => props.onClick(props.url)}>{props.label}</a>
+let NavItemComponent = (p) =>
+  <li className="nav-item">
+    <Link className="nav-link" to={p.path}>{p.name}</Link>
   </li>
 
 export default NavItemComponent;

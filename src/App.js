@@ -1,33 +1,23 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import NavComponent from './components/Nav.component.jsx';
+import HomeComponent from './components/Home.component.jsx';
+import AboutComponent from './components/About.component.jsx';
+import GitHubComponent from './components/GitHub.component.jsx';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      navigationLink: 'about-me'
-    }
-  }
-
-  handleNavClick(link_name) {
-    this.setState({ navigationLink: link_name})
-  }
-
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <div>
-          <NavComponent optionSelected="something-else" onClick={(link_name) => this.handleNavClick(link_name)} activeLink={this.state.navigationLink}/>
-          <div className="card">
-            <div className="card-body">
-              Option selected: <b>{this.state.navigationLink}</b>
-            </div>
-          </div>
+          <NavComponent />
+          <Route exact path="/" component={HomeComponent} />
+          <Route path="/home" component={HomeComponent} />
+          <Route path="/about" component={AboutComponent} />
+          <Route path="/github" component={GitHubComponent} />
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
