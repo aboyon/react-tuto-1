@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom'
+
+import NavComponent from './components/Nav.component.jsx';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      navigationLink: 'about-me'
+    }
+  }
+
+  handleNavClick(link_name) {
+    this.setState({ navigationLink: link_name})
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div>
+          <NavComponent optionSelected="something-else" onClick={(link_name) => this.handleNavClick(link_name)} activeLink={this.state.navigationLink}/>
+          <div className="card">
+            <div className="card-body">
+              Option selected: <b>{this.state.navigationLink}</b>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
